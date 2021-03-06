@@ -10,4 +10,4 @@ The stl_crimeapp folder inside the app folder contains the dataset and the code 
 ## Data Source
 
 * The Original Crime data can be found on the https://www.slmpd.org/Crimereports.shtml website
-* Alternatively the [compstatr](https://github.com/slu-openGIS/compstatr) package can be used to scape monthly data from the above website 
+* Alternatively the [compstatr](https://github.com/slu-openGIS/compstatr) package can be used to scrape monthly data from the above website 
