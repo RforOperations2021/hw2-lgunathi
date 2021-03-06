@@ -1,0 +1,12 @@
+name: stl_crimeapp
+title: stl_crimeapp
+username:
+account: laknathdias
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 3745507
+bundleId: 4307755
+url: https://laknathdias.shinyapps.io/stl_crimeapp/
+when: 1615004993.55409
+asMultiple: FALSE
+asStatic: FALSE

@@ -53,9 +53,28 @@ myMergedData$coded_year<-
 myMergedData$codedmonth<-
   month(lubridate::ymd(myMergedData$coded_month, truncated = 1))
 myMergedData$Month<-month(as.Date(myMergedData$date,format='%Y/%m/%d'),label = TRUE)
+myMergedData$timeofday <- hour(myMergedData$date)
+
 
 
 police_data<-myMergedData%>%
   filter(count!="-1")
 
-fwrite(police_data,"C:/Users/lakna/OneDrive/Desktop/R Shiny Operations Mgmt/hw2-lgunathi/app/policedata.csv")
+violent_crimecodes<-c(21000:29999, # Rape
+                      10000, # Homicide
+                      30000:39999, #Roberry
+                      40000:49999, #Assault
+                      50000:59999) # Burglary
+
+
+violent_crimes<-police_data%>%
+  mutate(UCR_casetype=case_when(crime %in% 21000:29999~"Rape",
+                                crime %in% 30000:39999~"Roberry",
+                                crime %in% 40000:49999~"Assault",
+                                crime %in% 50000:59999~"Burglary",
+                                crime %in% 10000~"Homicide"))
+
+
+violent_crimes <- violent_crimes%>% filter(UCR_casetype!='NA')
+
+fwrite(violent_crimes,"C:/Users/lakna/OneDrive/Desktop/R Shiny Operations Mgmt/hw2-lgunathi/app/violent_crimes.csv")
